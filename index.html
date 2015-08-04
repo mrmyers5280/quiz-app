@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Quiz App</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body>
+    <div class="main">
+        <header class="header">
+            <h1>Movie Quiz</h1>
+        </header>
+        <div class="content">
+            <div class="question-1">
+                <h2>In Star Wars, A New Hope, what spaceport was the cantina in?</h2>
+                <input type="radio" name="question1" id="mos-eisley" value="mos eisley">
+                <label for="mos-eisley">Mos Eisley</label>
+                <input type="radio" name="question1" id="los-eisley" value="los eisley">
+                <label for="los-eisley">Los Eisley</label>
+                <input type="radio" name="question1" id="tattoine" value="tattoine">
+                <label for="tattoine">Tattoine</label>
+                <input type="radio" name="question1" id="anchorhead" value="anchorhead">
+                <label for="anchorhead">Anchorhead</label>
+            </div>
+            <div class="question-2">
+                <h2>The movies Tron: Legacy (2010) and Oblivion (2013) have which person in common?</h2>
+                <input type="radio" name="question2" id="tom-cruise" value="tom cruise">
+                <label for="tom-cruise">Actor, Tom Cruise</label>
+                <input type="radio" name="question2" id="jeff-bridges" value="jeff bridges">
+                <label for="jeff-bridges">Actor, Jeff Bridges</label>
+                <input type="radio" name="question2" id="joseph-kosinski" value="joseph kosinski">
+                <label for="joseph-kosinski">Director, Joseph Kosinski</label>
+                <input type="radio" name="question2" id="m83" value="m83">
+                <label for="m83">Soundtrack Artist, M83</label>
+            </div>
+            <div class="question-3">
+                <h2>In The Godfather II, to which city does Don Corleone relocate his family?</h2>
+                <input type="radio" name="question3" id="answer1" value="answer">
+                <label for="answer1">Las Vegas</label>
+                <input type="radio" name="question3" id="answer2" value="answer">
+                <label for="answer2">Reno</label>
+                <input type="radio" name="question3" id="answer3" value="answer">
+                <label for="answer3">Lake Tahoe</label>
+                <input type="radio" name="question3" id="answer4" value="answer">
+                <label for="answer4">Atlantic City</label>
+            </div>
+            <!-- Lord of the Rings question? -->
+            <button type="button">Submit Answer</button>
+        </div>
+        <footer class="footer">
+            <div class="correct">
+                <p><span>#</span> Correct</p>
+            </div>
+            <div class="count">
+                <p>Question <span>#</span> of 3</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
