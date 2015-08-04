@@ -1,6 +1,17 @@
 .header {
     background: url('../images/marquee-sm.jpg') no-repeat;
+    background-position: center;
     height: 250px;
     width: 350px;
     margin: 0 auto;
+}
+.header h1 {
+    display: none;
+}
+.content {
+    width: 350px;
+    margin: 0 auto;
+}
+ul {
+    list-style-type: none;
 }
