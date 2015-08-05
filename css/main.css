@@ -1,3 +1,21 @@
+.h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+.h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+}
+.h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+.h4 {
+    margin: 1.33em 0;
+}
+.masthead {
+    background-color: #000000;
+}
 .header {
     background: url('../images/marquee-sm.jpg') no-repeat;
     /*background-position: center;*/
@@ -29,4 +47,19 @@
 .button {
     width: 200px;
     margin: 30px auto;
+}
+.footer {
+    height: 100px;
+    background-color: #aaaaaa;
+    padding: 0 20px;
+}
+.correct, .count {
+    width: 50%;
+}
+.correct {
+    float: left;
+}
+.count {
+    float: right;
+    text-align: right;
 }
