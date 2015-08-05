@@ -63,3 +63,12 @@
     float: right;
     text-align: right;
 }
+
+/**** Media queries for larger screens ****/
+@media screen and (min-width: 768px) {
+    .answerGroup {
+        text-align: left;
+        width: 55%;
+        margin: 0 auto;
+    }
+}
