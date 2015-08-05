@@ -49,7 +49,7 @@
     margin: 30px auto;
 }
 .footer {
-    height: 100px;
+    height: 200px;
     background-color: #aaaaaa;
     padding: 0 20px;
 }
@@ -69,6 +69,10 @@
     .answerGroup {
         text-align: left;
         width: 55%;
+        margin: 0 auto;
+    }
+    .footerContent {
+        width: 50%;
         margin: 0 auto;
     }
 }
