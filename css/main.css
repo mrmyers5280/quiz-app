@@ -1,6 +1,6 @@
 .header {
     background: url('../images/marquee-sm.jpg') no-repeat;
-    background-position: center;
+    /*background-position: center;*/
     height: 250px;
     width: 350px;
     margin: 0 auto;
@@ -10,8 +10,23 @@
 }
 .content {
     width: 350px;
+    height: 300px;
+    margin: 0 auto;
+    /*background: url('../images/movie-theater-sm.jpeg') no-repeat;*/
+    padding-top: 7px;
+    padding-left: 25px;
+}
+.answer {
+    margin-left: 20px;
+}
+.question-2, .question-3 {
+    display: none;
+}
+.submitButton {
+    width: 250px;
     margin: 0 auto;
 }
-ul {
-    list-style-type: none;
+.button {
+    width: 200px;
+    margin: 30px auto;
 }
