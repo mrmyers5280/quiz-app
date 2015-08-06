@@ -20,9 +20,14 @@ var question5 = new Question("In John Carter, to which planet in our solar syste
 
 console.log(question1.sayQuestion());
 for (var i in question1) {
-    console.log(question1[i]);
+    console.log("1: " + question1[i]);
 }
-
+var questions = [question1, question2, question3, question4, question5];
+for (var i = 0; i < questions.length; i++) {
+    for(prop in questions[i]) {
+        console.log(questions[i][prop]);
+    }
+}
 
 // var question1 = {
 //     ask: "In Star Wars, A New Hope, in which spaceport was the cantina?",
