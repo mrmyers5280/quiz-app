@@ -28,6 +28,13 @@ for (var i = 0; i < questions.length; i++) {
         console.log(questions[i][prop]);
     }
 }
+// this should be an object or a method of an object
+var showQuestion = function(number) {
+    //empty the current question div.question
+    $('.question').empty();
+    //build the new question inside div.question
+    $('.question').append('<h2>' + question1.ask + '</h2><div class="answerGroup"><div class="answer"><input type="radio" name="question1" id="mos-eisley" value="0"><label for="mos-eisley">' + question1.answers[0] + '</label></div>');
+}
 
 // var question1 = {
 //     ask: "In Star Wars, A New Hope, in which spaceport was the cantina?",
