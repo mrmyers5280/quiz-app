@@ -1,6 +1,7 @@
 $(document).ready(function(){
+    var currentQuestion = 0;
 
-    // create a question objects and test it
+    // create a question object and test it
     function Question(ask, answers, correct) {
         this.ask = ask;
         this.answers = answers;
@@ -8,35 +9,80 @@ $(document).ready(function(){
     }
 
     Question.prototype.sayQuestion = function() {
-        return "Question 1: " + this.ask + " answers: " + this.answers + " correct: " + this.correct;
+        return 'Question 1: ' + this.ask + ' answers: ' + this.answers + ' correct: ' + this.correct;
     }
-    var question1 = new Question("In Star Wars, A New Hope, in which spaceport was the cantina?", ["Mos Eisley", "Los Eisley", "Tattoine", "Anchorhead"], 0);
+    var questions = [
+        new Question(
+            "In Star Wars, A New Hope, in which spaceport was the cantina?",
+            [
+                "Mos Eisley",
+                "Los Eisley",
+                "Tattoine",
+                "Anchorhead"
+            ],
+            0
+        ),
+        new Question(
+            "The movies Tron: Legacy (2010) and Oblivion (2013) have which person in common?",
+            [
+                "Actor, Tom Cruise",
+                "Actor, Jeff Bridges",
+                "Director, Joseph Kosinski",
+                "Soundtrack Artist, M83"
+            ],
+            2
+        ),
+        new Question(
+            "In The Godfather II, to which city does Don Corleone relocate his family?",
+            [
+                "Las Vegas",
+                "Reno",
+                "Atlantic City",
+                "Lake Tahoe"
+            ],
+            3
+        ),
+        new Question(
+            "In Lord of the Rings: Fellowship of the Ring, what birthday is Bilbo celebrating?",
+            [
+                "115th",
+                "111th",
+                "100th",
+                "90th"
+            ],
+            1
+        ),
+        new Question(
+            "In John Carter, to which planet in our solar system does the name 'Barsoom' refer?",
+            [
+                "Venus",
+                "Earth",
+                "Mars",
+                "Jupiter"
+            ],
+            2
+        )
+    ];
 
-    var question2 = new Question("The movies Tron: Legacy (2010) and Oblivion (2013) have which person in common?", ["Actor, Tom Cruise", "Actor, Jeff Bridges", "Director, Joseph Kosinski", "Soundtrack Artist, M83"], 2);
-
-    var question3 = new Question("In The Godfather II, to which city does Don Corleone relocate his family?", ["Las Vegas", "Reno", "Atlantic City", "Lake Tahoe"], 3);
-
-    var question4 = new Question("In Lord of the Rings: Fellowship of the Ring, what birthday is Bilbo celebrating?", ["115th", "111th", "100th", "90th"], 1);
-
-    var question5 = new Question("In John Carter, to which planet in our solar system does the name 'Barsoom' refer?", ["Venus", "Earth", "Mars", "Jupiter"], 2);
-
-    console.log(question1.sayQuestion());
-    for (var i in question1) {
-        console.log("1: " + question1[i]);
+    console.log(questions[0].sayQuestion());
+    for (var i in questions[0]) {
+        console.log('1: ' + questions[0][i]);
     }
-    var questions = [question1, question2, question3, question4, question5];
+
     for (var i = 0; i < questions.length; i++) {
         for(prop in questions[i]) {
             console.log(questions[i][prop]);
         }
     }
     // this should be an object or a method of an object
-    var showQuestion = function(number) {
+    var showQuestion = function(question) {
         //empty the current question div.question
         $('.question').empty();
         //build the new question inside div.question
-        for (var i = 0; i < questions.length; i++) {
-            $('.question').append('<h2>' + questions[i].ask + '</h2>');
+        $('.question').append('<h2>' + questions[0].ask + '</h2><div class="answerGroup"></div>');
+        for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
+            $('.answerGroup').append('<div class="answer"><input type="radio" name="question" id="mos-eisley" value="' + i + '"><label for="mos-eisley">' + questions[currentQuestion].answers[i] + '</label></div>');
         }
     }
-}
+    showQuestion(questions[0]);
+});
