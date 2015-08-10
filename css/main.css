@@ -37,9 +37,6 @@
 .answer {
     margin-left: 20px;
 }
-.question-2, .question-3 {
-    display: none;
-}
 .submitButton {
     width: 250px;
     margin: 0 auto;
@@ -68,7 +65,7 @@
 @media screen and (min-width: 768px) {
     .answerGroup {
         text-align: left;
-        width: 55%;
+        width: 65%;
         margin: 0 auto;
     }
     .footerContent {
