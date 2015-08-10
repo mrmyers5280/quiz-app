@@ -64,11 +64,17 @@ $(document).ready(function(){
     QuestionView.prototype.showQuestion = function() {
         //empty the current question div.question
         questionElement.empty();
-        //build the new question inside div.question
-        questionElement.append('<h2>' + this.question.ask + '</h2><div class="answerGroup"></div>');
-        for (var i = 0; i < this.question.answers.length; i++) {
-            $('.answerGroup').append('<div class="answer"><input type="radio" name="question" id="answer-' + i + '" value="' + i + '"> <label for="answer-' + i + '">' + this.question.answers[i] + '</label></div>');
+        if (this.question != null) {
+            //build the new question inside div.question
+            questionElement.append('<h2>' + this.question.ask + '</h2><div class="answerGroup"></div>');
+            for (var i = 0; i < this.question.answers.length; i++) {
+                $('.answerGroup').append('<div class="answer"><input type="radio" name="question" id="answer-' + i + '" value="' + i + '"> <label for="answer-' + i + '">' + this.question.answers[i] + '</label></div>');
+            }
+        } else {
+            // let user know they've completed the Quiz
+            questionElement.append('<h2>Congratulations, you finished the quiz!')
         }
+
     }
     window.questionView = new QuestionView(questions[questionNumber]);
     window.questionView.showQuestion();
@@ -105,7 +111,6 @@ $(document).ready(function(){
         this.answers = answers;
         this.correct = correct;
     }
-
     Question.prototype.sayQuestion = function() {
         return 'Question 1: ' + this.ask + ' answers: ' + this.answers + ' correct: ' + this.correct;
     }
