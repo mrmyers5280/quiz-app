@@ -88,7 +88,11 @@ $(document).ready(function(){
         $('.submitButton').on('click', 'button', function() {
             console.log('.submitButton button');
             // get the answer value and store it to be used in Quiz obj
+            userAnswer = $('input[name=question]:checked', '.answer').val();
+            console.log('userAnswer: ' + userAnswer);
             // call the next question
+            questionNumber++;
+            console.log('questionNumber: ' + questionNumber);
         });
     }
     window.questionView.attachEventHandlers();
