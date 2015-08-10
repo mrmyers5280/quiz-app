@@ -81,12 +81,15 @@ $(document).ready(function(){
     window.questionView = new QuestionView(questions[currentQuestion]);
     window.questionView.showQuestion();
 
-    QuestionView.prototype.clickSubmit = function() {
+    QuestionView.prototype.attachEventHandlers = function() {
         // add a listener to the Submit Button
         $('.submitButton').on('click', 'button', function() {
             console.log('.submitButton button');
+            // get the answer value and store it to be used in Quiz obj
+            // call the next question
         });
     }
+    window.questionView.attachEventHandlers();
 
     console.log(questions[0].sayQuestion());
     for (var i in questions[0]) {
