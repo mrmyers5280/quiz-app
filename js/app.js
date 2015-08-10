@@ -1,7 +1,7 @@
 $(document).ready(function(){
-    var currentQuestion = 0;
-    var userAnswer = 0;
     var questionNumber = 0;
+    var userAnswer = 0;
+    var questionElement = $('.question');
 
     // create a question object and test it
     function Question(ask, answers, correct) {
@@ -73,14 +73,14 @@ $(document).ready(function(){
     }
     QuestionView.prototype.showQuestion = function() {
         //empty the current question div.question
-        $('.question').empty();
+        questionElement.empty();
         //build the new question inside div.question
-        $('.question').append('<h2>' + this.question.ask + '</h2><div class="answerGroup"></div>');
+        questionElement.append('<h2>' + this.question.ask + '</h2><div class="answerGroup"></div>');
         for (var i = 0; i < this.question.answers.length; i++) {
             $('.answerGroup').append('<div class="answer"><input type="radio" name="question" id="answer-' + i + '" value="' + i + '"> <label for="answer-' + i + '">' + this.question.answers[i] + '</label></div>');
         }
     }
-    window.questionView = new QuestionView(questions[currentQuestion]);
+    window.questionView = new QuestionView(questions[questionNumber]);
     window.questionView.showQuestion();
 
     QuestionView.prototype.attachEventHandlers = function() {
@@ -93,14 +93,20 @@ $(document).ready(function(){
             // call the next question
             questionNumber++;
             console.log('questionNumber: ' + questionNumber);
+            moveNext = new Quiz(questions[questionNumber]);
+            moveNext.nextQuestion();
         });
     }
     window.questionView.attachEventHandlers();
 
-    function Quiz(question, questionNumber, userAnswer) {
+    function Quiz(question) {
         this.question = question;
-        this.questionNumber = questionNumber;
-        this.userAnswer = userAnswer;
+        // this.questionNumber = questionNumber;
+        // this.userAnswer = userAnswer;
+    }
+    Quiz.prototype.nextQuestion = function() {
+        questionView = new QuestionView(questions[questionNumber]);
+        questionView.showQuestion(questions[questionNumber]);
     }
 
     console.log(questions[0].sayQuestion());
