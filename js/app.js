@@ -1,5 +1,7 @@
 $(document).ready(function(){
     var currentQuestion = 0;
+    var userAnswer = 0;
+    var questionNumber = 0;
 
     // create a question object and test it
     function Question(ask, answers, correct) {
@@ -90,6 +92,12 @@ $(document).ready(function(){
         });
     }
     window.questionView.attachEventHandlers();
+
+    function Quiz(question, questionNumber, userAnswer) {
+        this.question = question;
+        this.questionNumber = questionNumber;
+        this.userAnswer = userAnswer;
+    }
 
     console.log(questions[0].sayQuestion());
     for (var i in questions[0]) {
