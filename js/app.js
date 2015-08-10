@@ -11,6 +11,7 @@ $(document).ready(function(){
     Question.prototype.sayQuestion = function() {
         return 'Question 1: ' + this.ask + ' answers: ' + this.answers + ' correct: ' + this.correct;
     }
+    // questions array of objects - 'window.' added for debugging
     window.questions = [
         new Question(
             "In Star Wars, A New Hope, in which spaceport was the cantina?",
@@ -48,7 +49,7 @@ $(document).ready(function(){
                 "115th",
                 "111th",
                 "100th",
-                "90th"
+                "99th"
             ],
             1
         ),
@@ -64,6 +65,22 @@ $(document).ready(function(){
         )
     ];
 
+    // showQuestion(questions[0]);
+    function QuestionView(question) {
+        this.question = question;
+    }
+    QuestionView.prototype.showQuestion = function() {
+        //empty the current question div.question
+        $('.question').empty();
+        //build the new question inside div.question
+        $('.question').append('<h2>' + this.question.ask + '</h2><div class="answerGroup"></div>');
+        for (var i = 0; i < this.question.answers.length; i++) {
+            $('.answerGroup').append('<div class="answer"><input type="radio" name="question" id="answer-' + i + '" value="' + i + '"> <label for="answer-' + i + '">' + this.question.answers[i] + '</label></div>');
+        }
+    }
+    window.questionView = new QuestionView(questions[currentQuestion]);
+    window.questionView.showQuestion();
+
     console.log(questions[0].sayQuestion());
     for (var i in questions[0]) {
         console.log('1: ' + questions[0][i]);
@@ -75,28 +92,13 @@ $(document).ready(function(){
         }
     }
     // this should be an object or a method of an object
-    var showQuestion = function(question) {
-        //empty the current question div.question
-        $('.question').empty();
-        //build the new question inside div.question
-        $('.question').append('<h2>' + questions[0].ask + '</h2><div class="answerGroup"></div>');
-        for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
-            $('.answerGroup').append('<div class="answer"><input type="radio" name="question" id="mos-eisley" value="' + i + '"><label for="mos-eisley">' + questions[currentQuestion].answers[i] + '</label></div>');
-        }
-    }
-    // showQuestion(questions[0]);
-    function QuestionView(question) {
-        this.question = question;
-    }
-    QuestionView.prototype.showQuestion = function() {
-        //empty the current question div.question
-        $('.question').empty();
-        //build the new question inside div.question
-        $('.question').append('<h2>' + this.question.ask + '</h2><div class="answerGroup"></div>');
-        for (var i = 0; i < this.question.answers.length; i++) {
-            $('.answerGroup').append('<div class="answer"><input type="radio" name="question" id="mos-eisley" value="' + i + '"> <label for="mos-eisley">' + this.question.answers[i] + '</label></div>');
-        }
-    }
-    window.questionView = new QuestionView(questions[0]);
-    window.questionView.showQuestion();
+    // var showQuestion = function(question) {
+    //     //empty the current question div.question
+    //     $('.question').empty();
+    //     //build the new question inside div.question
+    //     $('.question').append('<h2>' + questions[0].ask + '</h2><div class="answerGroup"></div>');
+    //     for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
+    //         $('.answerGroup').append('<div class="answer"><input type="radio" name="question" id="mos-eisley" value="' + i + '"><label for="mos-eisley">' + questions[currentQuestion].answers[i] + '</label></div>');
+    //     }
+    // }
 });
