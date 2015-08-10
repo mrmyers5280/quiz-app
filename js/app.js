@@ -11,7 +11,7 @@ $(document).ready(function(){
     Question.prototype.sayQuestion = function() {
         return 'Question 1: ' + this.ask + ' answers: ' + this.answers + ' correct: ' + this.correct;
     }
-    var questions = [
+    window.questions = [
         new Question(
             "In Star Wars, A New Hope, in which spaceport was the cantina?",
             [
@@ -84,5 +84,19 @@ $(document).ready(function(){
             $('.answerGroup').append('<div class="answer"><input type="radio" name="question" id="mos-eisley" value="' + i + '"><label for="mos-eisley">' + questions[currentQuestion].answers[i] + '</label></div>');
         }
     }
-    showQuestion(questions[0]);
+    // showQuestion(questions[0]);
+    function QuestionView(question) {
+        this.question = question;
+    }
+    QuestionView.prototype.showQuestion = function() {
+        //empty the current question div.question
+        $('.question').empty();
+        //build the new question inside div.question
+        $('.question').append('<h2>' + this.question.ask + '</h2><div class="answerGroup"></div>');
+        for (var i = 0; i < this.question.answers.length; i++) {
+            $('.answerGroup').append('<div class="answer"><input type="radio" name="question" id="mos-eisley" value="' + i + '"> <label for="mos-eisley">' + this.question.answers[i] + '</label></div>');
+        }
+    }
+    window.questionView = new QuestionView(questions[0]);
+    window.questionView.showQuestion();
 });
