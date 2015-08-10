@@ -3,16 +3,6 @@ $(document).ready(function(){
     var userAnswer = 0;
     var questionElement = $('.question');
 
-    // create a question object and test it
-    function Question(ask, answers, correct) {
-        this.ask = ask;
-        this.answers = answers;
-        this.correct = correct;
-    }
-
-    Question.prototype.sayQuestion = function() {
-        return 'Question 1: ' + this.ask + ' answers: ' + this.answers + ' correct: ' + this.correct;
-    }
     // questions array of objects - 'window.' added for debugging
     window.questions = [
         new Question(
@@ -109,6 +99,16 @@ $(document).ready(function(){
         questionView.showQuestion(questions[questionNumber]);
     }
 
+    // create a question object and test it
+    function Question(ask, answers, correct) {
+        this.ask = ask;
+        this.answers = answers;
+        this.correct = correct;
+    }
+
+    Question.prototype.sayQuestion = function() {
+        return 'Question 1: ' + this.ask + ' answers: ' + this.answers + ' correct: ' + this.correct;
+    }
     console.log(questions[0].sayQuestion());
     for (var i in questions[0]) {
         console.log('1: ' + questions[0][i]);
