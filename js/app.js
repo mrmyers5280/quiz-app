@@ -72,7 +72,7 @@ $(document).ready(function(){
             }
         } else {
             // let user know they've completed the Quiz
-            questionElement.append('<h2>Congratulations, you finished the quiz!')
+            questionElement.append('<h2>Congratulations, you finished the quiz!</h2>')
         }
 
     }
