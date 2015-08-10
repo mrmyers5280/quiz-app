@@ -81,6 +81,13 @@ $(document).ready(function(){
     window.questionView = new QuestionView(questions[currentQuestion]);
     window.questionView.showQuestion();
 
+    QuestionView.prototype.clickSubmit = function() {
+        // add a listener to the Submit Button
+        $('.submitButton').on('click', 'button', function() {
+            console.log('.submitButton button');
+        });
+    }
+
     console.log(questions[0].sayQuestion());
     for (var i in questions[0]) {
         console.log('1: ' + questions[0][i]);
