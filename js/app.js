@@ -125,6 +125,7 @@ $(document).ready(function(){
         }
         console.log('numCorrect after if: ' + numCorrect);
         // TODO: add code to update num correct
+        $('.correct span').text(numCorrect);
     }
 
     console.log(questions[0].sayQuestion());
