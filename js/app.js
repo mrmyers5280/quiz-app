@@ -84,6 +84,7 @@ $(document).ready(function(){
         } else {
             // let user know they've completed the Quiz
             questionElement.append('<h2>Congratulations, you finished the quiz!</h2>')
+            questionElement.append('<h2>You got ' + numCorrect + ' right. Way to go!</h2>')
         }
         // TODO: add code to display question num of total questions
         $('.questionNum').text(questionNumber + 1)
