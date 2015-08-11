@@ -85,10 +85,12 @@ $(document).ready(function(){
             // let user know they've completed the Quiz
             questionElement.append('<h2>Congratulations, you finished the quiz!</h2>')
         }
-
+        // TODO: add code to display question num of total questions
+        $('.questionNum').text(questionNumber + 1)
     }
     window.questionView = new QuestionView(questions[questionNumber]);
     window.questionView.showQuestion();
+    $('.totalQuestions').text(questions.length);
 
     QuestionView.prototype.attachEventHandlers = function() {
         // add a listener to the Submit Button
@@ -122,6 +124,7 @@ $(document).ready(function(){
             numCorrect++;
         }
         console.log('numCorrect after if: ' + numCorrect);
+        // TODO: add code to update num correct
     }
 
     console.log(questions[0].sayQuestion());
