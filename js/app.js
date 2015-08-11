@@ -1,6 +1,7 @@
 $(document).ready(function(){
     var questionNumber = 0;
     var userAnswer = 0;
+    var numCorrect = 0;
     var questionElement = $('.question');
 
     // questions array of objects - 'window.' added for debugging
@@ -87,10 +88,11 @@ $(document).ready(function(){
             userAnswer = $('input[name=question]:checked', '.answer').val();
             console.log('userAnswer: ' + userAnswer);
             // call the next question
-            questionNumber++;
             console.log('questionNumber: ' + questionNumber);
-            moveNext = new Quiz(questions[questionNumber]);
-            moveNext.nextQuestion();
+            quizControl = new Quiz(questions[questionNumber]);
+            quizControl.checkAnswer();
+            questionNumber++;
+            quizControl.nextQuestion();
         });
     }
     window.questionView.attachEventHandlers();
@@ -103,6 +105,13 @@ $(document).ready(function(){
     Quiz.prototype.nextQuestion = function() {
         questionView = new QuestionView(questions[questionNumber]);
         questionView.showQuestion(questions[questionNumber]);
+    }
+    Quiz.prototype.checkAnswer = function() {
+        console.log('numCorrect before if: ' + numCorrect);
+        if(parseInt(userAnswer) === questions[questionNumber].correct) {
+            numCorrect++;
+        }
+        console.log('numCorrect after if: ' + numCorrect);
     }
 
     // create a question object and test it
