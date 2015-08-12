@@ -2,7 +2,6 @@ $(document).ready(function(){
     var questionNumber = 0;
     var userAnswer = 0;
     var numCorrect = 0;
-    var questionElement = $('.question');
 
     // create a question object and test it
     function Question(ask, answers, correct) {
@@ -11,7 +10,7 @@ $(document).ready(function(){
         this.correct = correct;
     }
     // questions array of objects - 'window.' added for debugging
-    window.questions = [
+    questions = [
         new Question(
             "In Star Wars, A New Hope, in which spaceport was the cantina?",
             [
@@ -65,22 +64,24 @@ $(document).ready(function(){
     ];
 
     // showQuestion(questions[0]);
-    function QuestionView(question) {
+    function QuizView(question, element) {
         this.question = question;
+        this.element = element;
     }
-    QuestionView.prototype.showQuestion = function() {
+    QuizView.prototype.showQuestion = function() {
         //empty the current question div.question
-        questionElement.empty();
+        this.element.find('.question').empty();
         if (this.question != null) {
             //build the new question inside div.question
-            questionElement.append('<h2>' + this.question.ask + '</h2><div class="answerGroup"></div>');
+            this.element.find('.question').append('<h2>' + this.question.ask + '</h2><div class="answerGroup"></div>');
             for (var i = 0; i < this.question.answers.length; i++) {
                 $('.answerGroup').append('<div class="answer"><input type="radio" name="question" id="answer-' + i + '" value="' + i + '"> <label for="answer-' + i + '">' + this.question.answers[i] + '</label></div>');
             }
         } else {
             // let user know they've completed the Quiz
-            questionElement.append('<h2>Congratulations, you finished the quiz!</h2>')
-            questionElement.append('<h2>You got ' + numCorrect + ' right. Way to go!</h2>')
+            this.element.find('.question')
+                .append('<h2>Congratulations, you finished the quiz!</h2>')
+                .append('<h2>You got ' + numCorrect + ' right. Way to go!</h2>');
         }
         // display question num of total questions
         if (questionNumber >= questions.length) {
@@ -89,11 +90,8 @@ $(document).ready(function(){
             $('.questionNum').text(questionNumber + 1)
         }
     }
-    window.questionView = new QuestionView(questions[questionNumber]);
-    window.questionView.showQuestion();
-    $('.totalQuestions').text(questions.length);
 
-    QuestionView.prototype.attachEventHandlers = function() {
+    QuizView.prototype.attachEventHandlers = function() {
         // add a listener to the Submit Button
         $('.submitButton').on('click', 'button', function() {
             console.log('.submitButton button');
@@ -108,7 +106,6 @@ $(document).ready(function(){
             quizControl.nextQuestion();
         });
     }
-    window.questionView.attachEventHandlers();
 
     function Quiz(question) {
         this.question = question;
@@ -116,7 +113,7 @@ $(document).ready(function(){
         // this.userAnswer = userAnswer;
     }
     Quiz.prototype.nextQuestion = function() {
-        questionView = new QuestionView(questions[questionNumber]);
+        questionView = new QuizView(questions[questionNumber]);
         questionView.showQuestion(questions[questionNumber]);
     }
     Quiz.prototype.checkAnswer = function() {
@@ -128,5 +125,8 @@ $(document).ready(function(){
         // update num correct
         $('.correct span').text(numCorrect);
     }
-
+    questionView = new QuizView(questions[questionNumber], $('.main'));
+    questionView.showQuestion(questions[questionNumber]);
+    $('.totalQuestions').text(questions.length);
+    questionView.attachEventHandlers();
 });
