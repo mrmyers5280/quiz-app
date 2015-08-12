@@ -10,10 +10,6 @@ $(document).ready(function(){
         this.answers = answers;
         this.correct = correct;
     }
-    // test output
-    Question.prototype.sayQuestion = function() {
-        return 'Question 1: ' + this.ask + ' answers: ' + this.answers + ' correct: ' + this.correct;
-    }
     // questions array of objects - 'window.' added for debugging
     window.questions = [
         new Question(
@@ -133,24 +129,4 @@ $(document).ready(function(){
         $('.correct span').text(numCorrect);
     }
 
-    console.log(questions[0].sayQuestion());
-    for (var i in questions[0]) {
-        console.log('1: ' + questions[0][i]);
-    }
-
-    for (var i = 0; i < questions.length; i++) {
-        for(prop in questions[i]) {
-            console.log(questions[i][prop]);
-        }
-    }
-    // this should be an object or a method of an object
-    // var showQuestion = function(question) {
-    //     //empty the current question div.question
-    //     $('.question').empty();
-    //     //build the new question inside div.question
-    //     $('.question').append('<h2>' + questions[0].ask + '</h2><div class="answerGroup"></div>');
-    //     for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
-    //         $('.answerGroup').append('<div class="answer"><input type="radio" name="question" id="mos-eisley" value="' + i + '"><label for="mos-eisley">' + questions[currentQuestion].answers[i] + '</label></div>');
-    //     }
-    // }
 });
