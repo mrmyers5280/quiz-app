@@ -4,8 +4,8 @@ $(document).ready(function(){
 	var numCorrect = 0;
 
 	// create a question object and test it
-	function Question(ask, answers, correct) {
-		this.ask = ask;
+	function Question(prompt, answers, correct) {
+		this.prompt = prompt;
 		this.answers = answers;
 		this.correct = correct;
 	}
@@ -73,7 +73,7 @@ $(document).ready(function(){
 		this.element.find('.question').empty();
 		if (this.question != null) {
 			//build the new question inside div.question
-			this.element.find('.question').append('<h2>' + this.question.ask + '</h2><div class="answerGroup"></div>');
+			this.element.find('.question').append('<h2>' + this.question.prompt + '</h2><div class="answerGroup"></div>');
 			for (var i = 0; i < this.question.answers.length; i++) {
 				$('.answerGroup').append('<div class="answer"><input type="radio" name="question" id="answer-' + i + '" value="' + i + '"> <label for="answer-' + i + '">' + this.question.answers[i] + '</label></div>');
 			}
