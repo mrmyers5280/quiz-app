@@ -2,6 +2,7 @@ $(document).ready(function(){
 	var questionNumber = 0;
 	var userAnswer = 0;
 	var numCorrect = 0;
+	var questionElement = $('.question');
 
 	// create a question object and test it
 	function Question(prompt, answers, correct) {
@@ -70,16 +71,16 @@ $(document).ready(function(){
 	}
 	QuizView.prototype.showQuestion = function() {
 		//empty the current question div.question
-		this.element.find('.question').empty();
+		questionElement.empty();
 		if (this.question != null) {
 			//build the new question inside div.question
-			this.element.find('.question').append('<h2>' + this.question.prompt + '</h2><div class="answerGroup"></div>');
+			questionElement.append('<h2>' + this.question.prompt + '</h2><div class="answerGroup"></div>');
 			for (var i = 0; i < this.question.answers.length; i++) {
 				$('.answerGroup').append('<div class="answer"><input type="radio" name="question" id="answer-' + i + '" value="' + i + '"> <label for="answer-' + i + '">' + this.question.answers[i] + '</label></div>');
 			}
 		} else {
 			// let user know they've completed the Quiz
-			this.element.find('.question')
+			questionElement
 				.append('<h2>Congratulations, you finished the quiz!</h2>')
 				.append('<h2>You got ' + numCorrect + ' right. Way to go!</h2>');
 		}
@@ -104,6 +105,14 @@ $(document).ready(function(){
 			quizControl.checkAnswer();
 			questionNumber++;
 			quizControl.nextQuestion();
+		});
+		$('.resetButton').on('click', 'button', function() {
+			console.log('.resetButton button');
+			questionNumber = 0;
+			quizControl = new Quiz(questions[questionNumber]);
+			quizControl.nextQuestion();
+			numCorrect = 0;
+			$('.correct span').text(numCorrect);
 		});
 	}
 
