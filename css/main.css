@@ -1,75 +1,76 @@
 .h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
+	font-size: 2em;
+	margin: 0.67em 0;
 }
 .h2 {
-    font-size: 1.5em;
-    margin: 0.83em 0;
+	font-size: 1.5em;
+	margin: 0.83em 0;
 }
 .h3 {
-    font-size: 1.17em;
-    margin: 1em 0;
+	font-size: 1.17em;
+	margin: 1em 0;
 }
 .h4 {
-    margin: 1.33em 0;
+	margin: 1.33em 0;
 }
 .masthead {
-    background-color: #000000;
+	background-color: #000000;
 }
 .header {
-    background: url('../images/marquee-sm.jpg') no-repeat;
-    /*background-position: center;*/
-    height: 250px;
-    width: 350px;
-    margin: 0 auto;
+	background: url('../images/marquee-sm.jpg') no-repeat;
+	/*background-position: center;*/
+	height: 250px;
+	width: 350px;
+	margin: 0 auto;
 }
 .header h1 {
-    display: none;
+	display: none;
 }
 .content {
-    width: 350px;
-    height: 300px;
-    margin: 0 auto;
-    /*background: url('../images/movie-theater-sm.jpg') no-repeat;*/
-    padding-top: 7px;
-    padding-left: 25px;
+	width: 350px;
+	height: 300px;
+	margin: 0 auto;
+	/*background: url('../images/movie-theater-sm.jpg') no-repeat;*/
+	padding-top: 7px;
+	padding-left: 25px;
 }
 .answer {
-    margin-left: 20px;
+	margin-left: 20px;
 }
-.submitButton {
-    width: 250px;
-    margin: 0 auto;
+.submitButton,
+.resetButton {
+	width: 250px;
+	margin: 0 auto;
 }
 .button {
-    width: 200px;
-    margin: 30px auto;
+	width: 200px;
+	margin: 30px auto;
 }
 .footer {
-    height: 200px;
-    background-color: #aaaaaa;
-    padding: 0 20px;
+	height: 200px;
+	background-color: #aaaaaa;
+	padding: 0 20px;
 }
 .correct, .count {
-    width: 50%;
+	width: 50%;
 }
 .correct {
-    float: left;
+	float: left;
 }
 .count {
-    float: right;
-    text-align: right;
+	float: right;
+	text-align: right;
 }
 
 /**** Media queries for larger screens ****/
 @media screen and (min-width: 768px) {
-    .answerGroup {
-        text-align: left;
-        width: 65%;
-        margin: 0 auto;
-    }
-    .footerContent {
-        width: 50%;
-        margin: 0 auto;
-    }
+	.answerGroup {
+		text-align: left;
+		width: 65%;
+		margin: 0 auto;
+	}
+	.footerContent {
+		width: 50%;
+		margin: 0 auto;
+	}
 }
