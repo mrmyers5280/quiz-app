@@ -37,10 +37,9 @@
 .answer {
 	margin-left: 20px;
 }
-.submitButton,
-.resetButton {
-	width: 250px;
-	margin: 0 auto;
+.submitButton {
+	margin-left: -25px;
+	text-align: center;
 }
 .button {
 	width: 200px;
@@ -48,17 +47,30 @@
 }
 .footer {
 	height: 200px;
-	background-color: #aaaaaa;
+	background-color: #ccc;
 	padding: 0 20px;
 }
-.correct, .count {
-	width: 50%;
+.footerContent {
+	display: flex;
+	flex-flow: row;
+	justify-content: space-around;
+}
+.correct, .count, .resetButton {
+	width: 33%;
+	/*float: left;*/
+	text-align: center;
 }
 .correct {
-	float: left;
+	/*float: left;*/
+	text-align: left;
+}
+.resetButton button {
+	width: 100%;
+	max-width: 200px;
+	margin: 1.1em 0;
 }
 .count {
-	float: right;
+	/*float: right;*/
 	text-align: right;
 }
 
