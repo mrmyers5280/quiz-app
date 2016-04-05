@@ -76,7 +76,7 @@ $(document).ready(function(){
 			//build the new question inside div.question
 			questionElement.append('<h2>' + this.question.prompt + '</h2><div class="answerGroup"></div>');
 			for (var i = 0; i < this.question.answers.length; i++) {
-				$('.answerGroup').append('<div class="answer"><input type="radio" name="question" id="answer-' + i + '" value="' + i + '"> <label for="answer-' + i + '">' + this.question.answers[i] + '</label></div>');
+				$('.answerGroup').append('<div class="answer"><input type="radio" name="question" id="answer-' + i + '" value="' + i + '"> <label for="answer-' + i + '"><span></span>' + this.question.answers[i] + '</label></div>');
 			}
 		} else {
 			// let user know they've completed the Quiz
