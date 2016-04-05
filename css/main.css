@@ -13,18 +13,28 @@
 .h4 {
 	margin: 1.33em 0;
 }
+.main {
+	background: url(https://images.unsplash.com/photo-1458053688450-eef5d21d43b3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=8d815ef30a5abbb17a9f634bc58c5e6e) no-repeat;
+	background-size: cover;
+}
 .masthead {
-	background-color: #000000;
+	/*background-color: #000000;*/
 }
 .header {
 	/*background: url('../images/marquee-sm.jpg') no-repeat;*/
 	/*background-position: center;*/
 	height: 250px;
-	width: 350px;
+	width: 650px;
 	margin: 0 auto;
+	text-align: center;
 }
 .header h1 {
-	display: none;
+	/*display: none;*/
+	font-family: CodyStar, fantasy, sans-serif;;
+	font-size: 64px;
+	color: #ccc;
+	margin-top: 0;
+	padding-top: 1.33em;
 }
 .marquee-sm {
 	margin: 0 auto;
@@ -32,14 +42,34 @@
 }
 .content {
 	width: 350px;
-	height: 300px;
+	height: 350px;
 	margin: 0 auto;
-	/*background: url('../images/movie-theater-sm.jpg') no-repeat;*/
+	background-color: rgba(85, 85, 85, 0.6);
 	padding-top: 7px;
 	padding-left: 25px;
+	font-family: Lato, sans-serif;
+	color: #eee;
 }
 .answer {
 	margin-left: 20px;
+	margin-bottom: 10px;
+}
+input[type="radio"] {
+	display:none;
+}
+input[type="radio"] + label span {
+	display:inline-block;
+	width:19px;
+	height:19px;
+	margin:-1px 4px 0 0;
+	vertical-align:middle;
+	cursor:pointer;
+	-moz-border-radius:  50%;
+	border-radius:  50%;
+	background-color: #fff;
+}
+input[type="radio"]:checked + label span{
+	 background-color: #A60822;
 }
 .submitButton {
 	margin-left: -25px;
@@ -48,11 +78,15 @@
 .button {
 	width: 200px;
 	margin: 30px auto;
+	border-radius: 0.5em;
+	color: #000;
 }
 .footer {
-	height: 200px;
-	background-color: #ccc;
+	height: 100px;
+	background-color: #000;
 	padding: 0 20px;
+	font-family: Lato, sans-serif;
+	color: #ccc;
 }
 .footerContent {
 	display: flex;
